@@ -3,25 +3,11 @@ import Team from "./Team";
 
 class Table extends Component {
   state = {
-    team: [
-      {
-        name: "Jiskra Višňová",
-        score: "15:15",
-        points: 24,
-      },
-      {
-        name: "Slovan Frýdlant",
-        score: "1:10",
-        points: 16,
-      },
-      {
-        name: "Hradek nad Nisou",
-        score: "21:12",
-        points: 11,
-      },
-    ],
+    
   };
   render() {
+    const {teams} = this.props;
+    console.log(this.props.teams);
     return (
       <table class="table">
         <thead>
@@ -30,11 +16,12 @@ class Table extends Component {
             <th scope="col">Jméno</th>
             <th scope="col">Skóre</th>
             <th scope="col">Body</th>
+            <th scope="col">BTN</th>
           </tr>
         </thead>
         <tbody>
           
-          {this.state.team.map((team, index) => 
+          {teams.map((team, index) => 
             <Team
               id={index + 1}
               name={team.name}
