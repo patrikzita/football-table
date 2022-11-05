@@ -6,7 +6,7 @@ class Table extends Component {
     
   };
   render() {
-    const {teams} = this.props;
+    const {teams, onDelete} = this.props;
     console.log(this.props.teams);
     return (
       <table class="table">
@@ -16,17 +16,16 @@ class Table extends Component {
             <th scope="col">Jméno</th>
             <th scope="col">Skóre</th>
             <th scope="col">Body</th>
-            <th scope="col">BTN</th>
+            <th scope="col">Delete</th>
           </tr>
         </thead>
         <tbody>
           
-          {teams.map((team, index) => 
+          {teams.map((team) => 
             <Team
-              id={index + 1}
-              name={team.name}
-              score={team.score}
-              points={team.points}
+              key={team.id}
+              team= {team}
+              onDelete={onDelete}
             ></Team>
           )}
         </tbody>

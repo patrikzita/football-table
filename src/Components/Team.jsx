@@ -3,15 +3,18 @@ import React, { Component } from "react";
 class Team extends Component {
   state = {};
   render() {
-    const { id, name, score, points } = this.props;
-    console.log(this.props);
+    const { onDelete } = this.props;
+
+    console.log(this.props.team.id);
+    console.log((() => onDelete(this.this.props.team.id)));
     return (
       <tr>
-        <th scope="row">{id}</th>
-        <td>{name}</td>
-        <td>{score}</td>
-        <td>{points}</td>
-        <td><button className="btn btn-danger btn-sm">Delete</button></td>
+        
+        <th scope="row">{this.props.team.id}</th>
+        <td>{this.props.team.name}</td>
+        <td>{this.props.team.score}</td>
+        <td>{this.props.team.points}</td>
+        <td><button onClick={() => this.props.onDelete(this.props.team.id)} className="btn btn-danger btn-sm">Delete</button></td>
       </tr>
     );
   }
