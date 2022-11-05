@@ -7,7 +7,6 @@ class Table extends Component {
   };
   render() {
     const {teams, onDelete} = this.props;
-    console.log(this.props.teams);
     return (
       <table class="table">
         <thead>
@@ -21,9 +20,10 @@ class Table extends Component {
         </thead>
         <tbody>
           
-          {teams.map((team) => 
+          {teams.map((team, index) => 
             <Team
               key={team.id}
+              order= {index + 1}
               team= {team}
               onDelete={onDelete}
             ></Team>
