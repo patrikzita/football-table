@@ -2,47 +2,14 @@ import React, { Component } from "react";
 import Table from "./Components/Table";
 import "./App.css";
 import "./script.js";
+import MatchForm from './Components/MatchForm';
+import TeamForm from "./Components/TeamForm";
 
 class App extends Component {
   state = {
-    team: [
-      {
-        id: 1,
-        name: "Jiskra Višňová",
-        scoreGoals: 31,
-        recieveGoals: 20,
-        points: 23,
-      },
-      {
-        id: 2,
-        name: "Slovan Frýdlant",
-        scoreGoals: 25,
-        recieveGoals: 24,
-        points: 18,
-      },
-      {
-        id: 3,
-        name: "Hradek nad Nisou",
-        scoreGoals: 36,
-        recieveGoals: 16,
-        points: 33,
-      },
-      {
-        id: 4,
-        name: "FC Pěnčín",
-        scoreGoals: 39,
-        recieveGoals: 16,
-        points: 29,
-      },
-      {
-        id: 5,
-        name: "FK Sedmihorky",
-        scoreGoals: 38,
-        recieveGoals: 20,
-        points: 30,
-      },
-    ],
+    team: []
   };
+
   sortTeam = () => {
     const team = [...this.state.team];
 
@@ -65,12 +32,16 @@ class App extends Component {
   componentDidMount(){
     // při každým refreshi stránky se tabulka aktualizuje
     this.sortTeam();
+    fetch("http://localhost:3500/team/")
+    .then(response => response.json())
+    .then(json => this.setState({team: json}))
   }
   render() {
     return (
       <>
         <h1>Tabulka</h1>
         <Table teams={this.state.team} onDelete={this.handleDelete}></Table>
+        <TeamForm></TeamForm>
       </>
     );
   }
