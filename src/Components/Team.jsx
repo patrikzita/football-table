@@ -8,7 +8,7 @@ class Team extends Component {
       <tr>
         <th scope="row">{order}</th>
         <td>{team.name}</td>
-        <td>{team.score}</td>
+        <td>{team.scoreGoals}:{team.recieveGoals}</td>
         <td>{team.points}</td>
         <td><button onClick={() => onDelete(team.id)} className="btn btn-danger btn-sm">Delete</button></td>
       </tr>

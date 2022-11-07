@@ -8,7 +8,4 @@ class Script{
     Zdravic(){
         console.log(`Ahoj moje jméno je ${this.name}`);
     }
-
-
-
 }
