@@ -2,16 +2,17 @@ import React, { Component } from "react";
 import Table from "./Components/Table";
 import "./App.css";
 import "./script.js";
-import MatchForm from './Components/MatchForm';
+import MatchForm from "./Components/MatchForm";
 import TeamForm from "./Components/TeamForm";
 
 class App extends Component {
   state = {
-    team: []
+    team: [],
+    error: "",
   };
 
-  sortTeam = () => {
-    const team = [...this.state.team];
+  sortTeam = (jsonTeam) => {
+    const team = [...jsonTeam];
 
     team.sort((a, b) => {
       if (b.points === a.points) {
@@ -29,19 +30,48 @@ class App extends Component {
     const team = this.state.team.filter((team) => team.id !== teamID);
     this.setState({ team: team });
   };
-  componentDidMount(){
-    // při každým refreshi stránky se tabulka aktualizuje
-    this.sortTeam();
-    fetch("http://localhost:3500/team/")
-    .then(response => response.json())
-    .then(json => this.setState({team: json}))
+  addTeamHandle = (team) => {
+    const newTeam = [...this.state.team];
+    newTeam.push(newTeam);
+    this.setState({ team: newTeam });
+  };
+  reloadFetch = () =>{
+    fetch("http://localhost:3500/team")
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error(`Unable to get data: ${response.statusText}`);
+    })
+    .then((json) => {
+      this.setState({ team: json });
+      this.sortTeam(json);
+    })
+    .catch((err) => this.setState({ error: err.message }));
   }
+  componentDidMount() {
+    // při každým refreshi stránky se tabulka aktualizuje
+    fetch("http://localhost:3500/team")
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error(`Unable to get data: ${response.statusText}`);
+      })
+      .then((json) => {
+        this.setState({ team: json });
+        this.sortTeam(json);
+      })
+      .catch((err) => this.setState({ error: err.message }));
+  }
+
   render() {
     return (
       <>
+        {this.state.error && <h2>{this.state.error}</h2>}
         <h1>Tabulka</h1>
         <Table teams={this.state.team} onDelete={this.handleDelete}></Table>
-        <TeamForm></TeamForm>
+        <TeamForm fetchData={this.fetchData} reloadFetch={this.reloadFetch}></TeamForm>
       </>
     );
   }

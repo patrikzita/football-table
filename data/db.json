@@ -1,5 +1,5 @@
 {
-"team": [
+  "team": [
     {
       "id": 1,
       "name": "Jiskra Višňová",
@@ -34,6 +34,20 @@
       "scoreGoals": 38,
       "recieveGoals": 20,
       "points": 30
+    },
+    {
+      "name": "Spart Praha",
+      "scoreGoals": "8",
+      "recieveGoals": "6",
+      "points": "7",
+      "id": 6
+    },
+    {
+      "name": "Slavia Praha",
+      "scoreGoals": "4",
+      "recieveGoals": "1",
+      "points": "24",
+      "id": 7
     }
   ]
 }

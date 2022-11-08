@@ -11,6 +11,7 @@ class Team extends Component {
         <td>{team.scoreGoals}:{team.recieveGoals}</td>
         <td>{team.points}</td>
         <td><button onClick={() => onDelete(team.id)} className="btn btn-danger btn-sm">Delete</button></td>
+        <td><button onClick={() => onDelete(team.id)} className="btn btn-primary btn-sm">Upravit</button></td>
       </tr>
     );
   }

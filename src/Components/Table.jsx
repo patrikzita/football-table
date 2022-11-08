@@ -8,7 +8,7 @@ class Table extends Component {
   render() {
     const {teams, onDelete} = this.props;
     return (
-      <table class="table">
+      <table className="table m-2">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -16,6 +16,7 @@ class Table extends Component {
             <th scope="col">Skóre</th>
             <th scope="col">Body</th>
             <th scope="col">Delete</th>
+            <th scope="col">Upravit</th>
           </tr>
         </thead>
         <tbody>
