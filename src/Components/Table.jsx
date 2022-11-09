@@ -6,7 +6,7 @@ class Table extends Component {
     
   };
   render() {
-    const {teams, onDelete} = this.props;
+    const {teams, onDelete, jsonDelete, copyTeam} = this.props;
     return (
       <table className="table m-2">
         <thead>
@@ -16,7 +16,6 @@ class Table extends Component {
             <th scope="col">Skóre</th>
             <th scope="col">Body</th>
             <th scope="col">Delete</th>
-            <th scope="col">Upravit</th>
           </tr>
         </thead>
         <tbody>
@@ -27,6 +26,8 @@ class Table extends Component {
               order= {index + 1}
               team= {team}
               onDelete={onDelete}
+              jsonDelete={jsonDelete}
+              copyTeam={copyTeam}
             ></Team>
           )}
         </tbody>

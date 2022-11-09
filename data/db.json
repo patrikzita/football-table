@@ -1,52 +1,52 @@
 {
   "team": [
     {
-      "id": 1,
-      "name": "Jiskra Višňová",
-      "scoreGoals": 31,
-      "recieveGoals": 20,
-      "points": 23
+      "name": "Slovan Hrádek",
+      "scoreGoals": "36",
+      "recieveGoals": "16",
+      "points": "33",
+      "id": 1
     },
     {
-      "id": 2,
-      "name": "Slovan Frýdlant",
-      "scoreGoals": 25,
-      "recieveGoals": 24,
-      "points": 18
-    },
-    {
-      "id": 3,
-      "name": "Hradek nad Nisou",
-      "scoreGoals": 36,
-      "recieveGoals": 16,
-      "points": 33
-    },
-    {
-      "id": 4,
-      "name": "FC Pěnčín",
-      "scoreGoals": 39,
-      "recieveGoals": 16,
-      "points": 29
-    },
-    {
-      "id": 5,
       "name": "FK Sedmihorky",
-      "scoreGoals": 38,
-      "recieveGoals": 20,
-      "points": 30
+      "scoreGoals": "38",
+      "recieveGoals": "20",
+      "points": "30",
+      "id": 2
     },
     {
-      "name": "Spart Praha",
-      "scoreGoals": "8",
-      "recieveGoals": "6",
-      "points": "7",
+      "name": "FC Pěnčín A",
+      "scoreGoals": "39",
+      "recieveGoals": "16",
+      "points": "29",
+      "id": 3
+    },
+    {
+      "name": "Velké Hamry B",
+      "scoreGoals": "46",
+      "recieveGoals": "20",
+      "points": "25",
+      "id": 4
+    },
+    {
+      "name": "Jiskra Višňová",
+      "scoreGoals": "31",
+      "recieveGoals": "20",
+      "points": "23",
+      "id": 5
+    },
+    {
+      "name": "Slovan Frýdlant",
+      "scoreGoals": "25",
+      "recieveGoals": "24",
+      "points": "18",
       "id": 6
     },
     {
-      "name": "Slavia Praha",
-      "scoreGoals": "4",
-      "recieveGoals": "1",
-      "points": "24",
+      "name": "Sparta Praha",
+      "scoreGoals": "21",
+      "recieveGoals": "13",
+      "points": "31",
       "id": 7
     }
   ]

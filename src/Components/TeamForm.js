@@ -3,9 +3,9 @@ import { useState } from "react";
 function TeamForm(props) {
   // useState je hook který má stejnou moc jako u Class state a setState
   const [teamName, setTeamName] = useState("");
-  const [scoreGoals, setScoreGoals] = useState(0);
-  const [recieveGoals, setRecieveGoals] = useState(0);
-  const [points, setPoints] = useState(0);
+  const [scoreGoals, setScoreGoals] = useState("");
+  const [recieveGoals, setRecieveGoals] = useState("");
+  const [points, setPoints] = useState("");
   const [response, setResponse] = useState();
 
   const onSubmitHandler = (event) => {
@@ -28,6 +28,10 @@ function TeamForm(props) {
     }).then((response) => response.json())
     .then(json => setResponse(json))
     .finally(() =>{
+      setTeamName("");
+      setScoreGoals("");
+      setRecieveGoals("");
+      setPoints("");
       props.reloadFetch();
     })
     
@@ -39,21 +43,25 @@ function TeamForm(props) {
         <input
           type={"text"}
           placeholder={"Team name"}
+          value={teamName}
           onChange={(e) => setTeamName(e.target.value)}
         />
         <input
           type={"number"}
           placeholder={"Score goals"}
+          value={scoreGoals}
           onChange={(e) => setScoreGoals(e.target.value)}
         ></input>
         <input
           type={"number"}
           placeholder={"Recieve goals"}
+          value={recieveGoals}
           onChange={(e) => setRecieveGoals(e.target.value)}
         ></input>
         <input
           type={"number"}
           placeholder={"Points"}
+          value={points}
           onChange={(e) => setPoints(e.target.value)}
         ></input>
         <input type={"submit"} value={"Create Team"} />
